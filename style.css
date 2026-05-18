@@ -1,0 +1,156 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color:#333;
+  background:#fdfaf7;
+}
+
+h1,h2,h3{
+  font-family:'Cormorant Garamond', serif;
+}
+
+.hero{
+  height:100vh;
+  background:url('images/bg.jpg') center/cover no-repeat;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-size:6rem;
+  font-weight:300;
+}
+
+.hero p{
+  font-size:1.4rem;
+  margin:20px 0;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 32px;
+  border:1px solid white;
+  color:white;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:white;
+  color:black;
+}
+
+section{
+  padding:100px 20px;
+  text-align:center;
+}
+
+section h2{
+  font-size:3rem;
+  margin-bottom:30px;
+}
+
+.story p{
+  max-width:700px;
+  margin:20px auto;
+  line-height:1.8;
+}
+
+.countdown{
+  background:#efe8e1;
+}
+
+.timer{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.timer div{
+  display:flex;
+  flex-direction:column;
+}
+
+.timer span{
+  font-size:4rem;
+  font-weight:300;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.gallery-grid img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+}
+
+.event-box{
+  max-width:500px;
+  margin:auto;
+  padding:50px;
+  background:white;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.gift{
+  background:#efe8e1;
+}
+
+.rsvp form{
+  max-width:500px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.rsvp input{
+  padding:16px;
+  border:1px solid #ccc;
+}
+
+.rsvp button{
+  padding:16px;
+  border:none;
+  background:black;
+  color:white;
+  cursor:pointer;
+}
+
+footer{
+  padding:50px;
+  text-align:center;
+  background:#111;
+  color:white;
+}
