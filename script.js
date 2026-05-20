@@ -402,4 +402,51 @@ musicToggle.addEventListener(
   }
 );
 
+/* ========================= */
+/* MENU MOBILE */
+/* ========================= */
+
+const menuToggle =
+  document.getElementById("menuToggle");
+
+const mobileMenu =
+  document.getElementById("mobileMenu");
+
+menuToggle.addEventListener(
+  "click",
+  () => {
+
+    mobileMenu.classList.toggle("active");
+
+    if(
+      mobileMenu.classList.contains("active")
+    ){
+      menuToggle.innerHTML = "✕";
+    }else{
+      menuToggle.innerHTML = "☰";
+    }
+
+  }
+);
+
+/* FECHAR MENU AO CLICAR */
+
+document
+  .querySelectorAll(".mobile-menu a")
+  .forEach(link => {
+
+    link.addEventListener(
+      "click",
+      () => {
+
+        mobileMenu.classList.remove("active");
+
+        menuToggle.innerHTML = "☰";
+
+      }
+    );
+
+  });
+
+
 
