@@ -43,7 +43,11 @@ setInterval(() => {
 /* GOOGLE DRIVE */
 /* ========================= */
 
-const driveImages = [];
+const driveImages = [
+  "1hYB-peHdc_iJZwDxbxZfra6n4Y-HejUr",
+  "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe",
+  "1Ib8Jd_IK-O2-Zzndg-V57MPDqPuNspeQ"
+];
 
 const gallery =
   document.getElementById("gallery");
@@ -105,8 +109,9 @@ setInterval(() => {
 /* RSVP */
 /* ========================= */
 
+
 const APPS_SCRIPT_URL =
-  "COLE_AQUI_SEU_LINK_DO_APPS_SCRIPT";
+  "https://script.google.com/macros/s/AKfycbwAJ6f_Pnx-qRFAdjR9ufyrp8aj2DpDle899iZax2i51sFB1sN17maVd1YbczmvVqS7nQ/exec";
 
 const loginForm =
   document.getElementById("loginForm");
