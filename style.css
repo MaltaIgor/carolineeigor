@@ -338,3 +338,22 @@ footer{
   }
 
 }
+
+
+/* ========================= */
+/* EVENTOS RESPONSIVO */
+/* ========================= */
+
+@media(max-width:900px){
+
+  .evento-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  .evento-grid img{
+    height:420px !important;
+  }
+
+}
+
+
