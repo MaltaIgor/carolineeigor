@@ -1,11 +1,14 @@
-```javascript
 /* ========================= */
-/* CONTAGEM REGRESSIVA */
+/* DATA */
 /* ========================= */
 
 const weddingDate = new Date(
-  "Aug 15, 2026 16:00:00"
+  "Oct 31, 2026 20:30:00"
 ).getTime();
+
+/* ========================= */
+/* COUNTDOWN */
+/* ========================= */
 
 setInterval(() => {
 
@@ -37,22 +40,10 @@ setInterval(() => {
 }, 1000);
 
 /* ========================= */
-/* FOTOS GOOGLE DRIVE */
+/* GOOGLE DRIVE */
 /* ========================= */
 
-const driveImages = [
-
-  /*
-    COLOQUE AQUI OS IDS DAS IMAGENS
-
-    EXEMPLO:
-
-    "1AbCdEfGh",
-    "9XyZwKlmN"
-
-  */
-
-];
+const driveImages = [];
 
 const gallery =
   document.getElementById("gallery");
@@ -65,16 +56,12 @@ driveImages.forEach((id, index) => {
   const imageUrl =
     `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
 
-  /* GALERIA */
-
   const img =
     document.createElement("img");
 
   img.src = imageUrl;
 
   gallery.appendChild(img);
-
-  /* HERO */
 
   const heroImg =
     document.createElement("img");
@@ -90,7 +77,7 @@ driveImages.forEach((id, index) => {
 });
 
 /* ========================= */
-/* HERO AUTO SLIDE */
+/* HERO SLIDER */
 /* ========================= */
 
 let currentSlide = 0;
@@ -118,29 +105,173 @@ setInterval(() => {
 /* RSVP */
 /* ========================= */
 
-const form =
-  document.getElementById("rsvpForm");
+const APPS_SCRIPT_URL =
+  "COLE_AQUI_SEU_LINK_DO_APPS_SCRIPT";
 
-form.addEventListener("submit", async (e) => {
+const loginForm =
+  document.getElementById("loginForm");
 
-  e.preventDefault();
+const guestList =
+  document.getElementById("guestList");
 
-  const data = {
-    nome: form.nome.value,
-    acompanhantes: form.acompanhantes.value
-  };
+loginForm.addEventListener(
+  "submit",
+  async (e) => {
 
-  await fetch(
-    "COLE_AQUI_O_LINK_DO_APPS_SCRIPT",
-    {
-      method:"POST",
-      body:JSON.stringify(data)
+    e.preventDefault();
+
+    const telefone =
+      document
+        .getElementById("telefone")
+        .value
+        .replace(/\D/g,'');
+
+    const response = await fetch(
+      APPS_SCRIPT_URL,
+      {
+        method:"POST",
+        body:JSON.stringify({
+          action:"login",
+          telefone
+        })
+      }
+    );
+
+    const convidados =
+      await response.json();
+
+    if(convidados.length === 0){
+
+      guestList.innerHTML = `
+        <p>
+          Telefone não encontrado.
+        </p>
+      `;
+
+      return;
+
     }
-  );
 
-  alert("Presença confirmada!");
+    let html = `
+      <h3 style="
+        margin-bottom:30px;
+        color:#5F742F;
+      ">
+        Confirme os convidados
+      </h3>
+    `;
 
-  form.reset();
+    convidados.forEach((pessoa, index) => {
 
-});
-```
+      html += `
+        <div style="
+          background:white;
+          padding:24px;
+          border-radius:18px;
+          margin-bottom:18px;
+          text-align:left;
+        ">
+
+          <h4>
+            ${pessoa.convidado}
+          </h4>
+
+          <div style="
+            margin-top:18px;
+            display:flex;
+            gap:20px;
+          ">
+
+            <label>
+              <input
+                type="radio"
+                name="confirmacao_${index}"
+                value="Sim"
+              >
+              Vou
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="confirmacao_${index}"
+                value="Não"
+              >
+              Não Vou
+            </label>
+
+          </div>
+
+        </div>
+      `;
+
+    });
+
+    html += `
+      <button
+        id="saveRsvp"
+        style="
+          margin-top:20px;
+          background:#5F742F;
+          color:white;
+          border:none;
+          padding:18px 40px;
+          border-radius:14px;
+          cursor:pointer;
+        "
+      >
+        Salvar confirmação
+      </button>
+    `;
+
+    guestList.innerHTML = html;
+
+    document
+      .getElementById("saveRsvp")
+      .addEventListener(
+        "click",
+        async () => {
+
+          const confirmacoes = [];
+
+          convidados.forEach((pessoa, index) => {
+
+            const checked =
+              document.querySelector(
+                `input[name="confirmacao_${index}"]:checked`
+              );
+
+            confirmacoes.push({
+              rowIndex:pessoa.rowIndex,
+              confirmado:
+                checked
+                  ? checked.value
+                  : ""
+            });
+
+          });
+
+          await fetch(
+            APPS_SCRIPT_URL,
+            {
+              method:"POST",
+              body:JSON.stringify({
+                action:"confirmar",
+                confirmacoes
+              })
+            }
+          );
+
+          guestList.innerHTML = `
+            <h3 style="
+              color:#5F742F;
+            ">
+              Presença confirmada!
+            </h3>
+          `;
+
+        }
+      );
+
+  }
+);
