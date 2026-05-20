@@ -280,3 +280,126 @@ loginForm.addEventListener(
 
   }
 );
+
+
+/* ========================= */
+/* CAROUSEL */
+/* ========================= */
+
+const carouselImages = [
+
+  "1hYB-peHdc_iJZwDxbxZfra6n4Y-HejUr",
+  "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe",
+  "1Ib8Jd_IK-O2-Zzndg-V57MPDqPuNspeQ"
+
+];
+
+const carouselTrack =
+  document.getElementById("carouselTrack");
+
+carouselImages.forEach(id => {
+
+  const img =
+    document.createElement("img");
+
+  img.src =
+    `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
+
+  img.loading = "lazy";
+
+  carouselTrack.appendChild(img);
+
+});
+
+let currentCarousel = 0;
+
+function moveCarousel(direction){
+
+  const images =
+    document.querySelectorAll(
+      ".carousel-track img"
+    );
+
+  if(images.length === 0) return;
+
+  currentCarousel += direction;
+
+  if(currentCarousel < 0){
+    currentCarousel = 0;
+  }
+
+  if(currentCarousel > images.length - 1){
+    currentCarousel = images.length - 1;
+  }
+
+  const imageWidth =
+    images[0].offsetWidth + 24;
+
+  carouselTrack.style.transform =
+    `translateX(-${currentCarousel * imageWidth}px)`;
+
+}
+
+/* AUTOPLAY */
+
+setInterval(() => {
+
+  const images =
+    document.querySelectorAll(
+      ".carousel-track img"
+    );
+
+  if(images.length === 0) return;
+
+  currentCarousel++;
+
+  if(currentCarousel >= images.length){
+    currentCarousel = 0;
+  }
+
+  const imageWidth =
+    images[0].offsetWidth + 24;
+
+  carouselTrack.style.transform =
+    `translateX(-${currentCarousel * imageWidth}px)`;
+
+}, 4000);
+
+/* ========================= */
+/* MUSICA */
+/* ========================= */
+
+const music =
+  document.getElementById("bgMusic");
+
+const musicToggle =
+  document.getElementById("musicToggle");
+
+let playing = false;
+
+musicToggle.addEventListener(
+  "click",
+  async () => {
+
+    if(!playing){
+
+      await music.play();
+
+      playing = true;
+
+      musicToggle.innerHTML = "❚❚";
+
+    }else{
+
+      music.pause();
+
+      playing = false;
+
+      musicToggle.innerHTML = "♫";
+
+    }
+
+  }
+);
+
+
