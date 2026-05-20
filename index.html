@@ -239,26 +239,70 @@
 
   </section>
 
-  <!-- ========================= -->
-  <!-- GALERIA -->
-  <!-- ========================= -->
 
-  <section id="galeria">
+<!-- ========================= -->
+<!-- GALERIA -->
+<!-- ========================= -->
 
-    <div class="container">
+<section
+  id="galeria"
+  style="
+    overflow:hidden;
+    background:white;
+  "
+>
+
+  <div class="container">
+
+    <div
+      style="
+        text-align:center;
+        margin-bottom:60px;
+      "
+    >
 
       <h2>
         Nossos Momentos
       </h2>
 
-      <div
-        class="gallery-grid"
-        id="gallery"
-      ></div>
+      <p
+        style="
+          margin-top:20px;
+          color:#777;
+        "
+      >
+        Alguns registros da nossa história
+      </p>
 
     </div>
 
-  </section>
+    <div class="carousel-wrapper">
+
+      <button
+        class="carousel-btn prev"
+        onclick="moveCarousel(-1)"
+      >
+        ←
+      </button>
+
+      <div
+        class="carousel-track"
+        id="carouselTrack"
+      ></div>
+
+      <button
+        class="carousel-btn next"
+        onclick="moveCarousel(1)"
+      >
+        →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
 
   <!-- ========================= -->
   <!-- PRESENTES -->
