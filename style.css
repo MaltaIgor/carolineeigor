@@ -522,3 +522,20 @@ footer{
 }
 
 
+/* ========================= */
+/* HISTORIA RESPONSIVO */
+/* ========================= */
+
+@media(max-width:900px){
+
+  .historia-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #historia h2{
+    font-size:2.8rem !important;
+  }
+
+}
+
+
