@@ -4,57 +4,70 @@
 const weddingDate = new Date("Oct 31, 2026 20:30:00").getTime();
 
 /* ========================= */
-/* COUNTDOWN */
+/* COUNTDOWN LOGIC */
 /* ========================= */
 setInterval(() => {
   const now = new Date().getTime();
   const distance = weddingDate - now;
 
-  document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-  document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-  document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-  document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+
+  if (daysEl) daysEl.innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+  if (hoursEl) hoursEl.innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  if (minutesEl) minutesEl.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  if (secondsEl) secondsEl.innerText = Math.floor((distance % (1000 * 60)) / 1000);
 }, 1000);
 
 /* ========================= */
-/* IMAGENS DO DRIVE (HERO & CAROUSEL) */
+/* IMAGENS DO DRIVE APARTADAS */
 /* ========================= */
-const driveImages = [
+
+// 1. Imagens exclusivas do Slider Inicial de Fundo (Hero)
+const heroImages = [
+  "1Ib8Jd_IK-O2-Zzndg-V57MPDqPuNspeQ",
+  "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe"
+];
+
+// 2. Imagens exclusivas do Carrossel de Momentos (Galeria debaixo)
+const galleryImages = [
   "1hYB-peHdc_iJZwDxbxZfra6n4Y-HejUr",
   "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe",
   "1Ib8Jd_IK-O2-Zzndg-V57MPDqPuNspeQ"
 ];
 
+/* INJEÇÃO DAS IMAGENS NO BANNER PRINCIPAL (HERO) */
 const heroSlider = document.getElementById("heroSlider");
+if (heroSlider) {
+  heroImages.forEach((id, index) => {
+    const imageUrl = `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    if (index === 0) {
+      img.classList.add("active");
+    }
+    heroSlider.appendChild(img);
+  });
+}
+
+/* INJEÇÃO DAS IMAGENS NO CARROSSEL DE MOMENTOS */
 const carouselTrack = document.getElementById("carouselTrack");
-
-// Injetar imagens no DOM
-driveImages.forEach((id, index) => {
-  const imageUrl = `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
-
-  // Para o Banner Inicial (Hero)
-  if (heroSlider) {
-    const heroImg = document.createElement("img");
-    heroImg.src = imageUrl;
-    if (index === 0) heroImg.classList.add("active");
-    heroSlider.appendChild(heroImg);
-  }
-
-  // Para o Carrossel da Seção Fotos
-  if (carouselTrack) {
-    const carouselImg = document.createElement("img");
-    carouselImg.src = imageUrl;
-    carouselImg.loading = "lazy";
-    carouselTrack.appendChild(carouselImg);
-  }
-});
+if (carouselTrack) {
+  galleryImages.forEach(id => {
+    const img = document.createElement("img");
+    img.src = `https://drive.google.com/thumbnail?id=${id}&sz=w2000`;
+    img.loading = "lazy";
+    carouselTrack.appendChild(img);
+  });
+}
 
 /* ========================= */
-/* HERO CROSSFADE LOGIC */
+/* AUTOMAÇÃO HERO SLIDER (CROSSFADE) */
 /* ========================= */
 let currentSlide = 0;
 setInterval(() => {
-  if (!heroSlider) return;
   const slides = document.querySelectorAll(".hero-slider img");
   if (slides.length === 0) return;
 
@@ -69,22 +82,30 @@ setInterval(() => {
 let currentCarousel = 0;
 
 function moveCarousel(direction) {
-  if (!carouselTrack) return;
+  const track = document.getElementById("carouselTrack");
+  if (!track) return;
+  
   const images = document.querySelectorAll(".carousel-track img");
   if (images.length === 0) return;
 
   currentCarousel += direction;
 
-  if (currentCarousel < 0) currentCarousel = 0;
-  if (currentCarousel > images.length - 1) currentCarousel = images.length - 1;
+  if (currentCarousel < 0) {
+    currentCarousel = 0;
+  }
+  if (currentCarousel > images.length - 1) {
+    currentCarousel = images.length - 1;
+  }
 
-  const imageWidth = images[0].offsetWidth + 24; // largura + gap
-  carouselTrack.style.transform = `translateX(-${currentCarousel * imageWidth}px)`;
+  const imageWidth = images[0].offsetWidth + 24; // Largura da imagem + Gap do CSS
+  track.style.transform = `translateX(-${currentCarousel * imageWidth}px)`;
 }
 
-// Autoplay Carrossel
+/* AUTOPLAY DO CARROSSEL DE FOTOS */
 setInterval(() => {
-  if (!carouselTrack) return;
+  const track = document.getElementById("carouselTrack");
+  if (!track) return;
+
   const images = document.querySelectorAll(".carousel-track img");
   if (images.length === 0) return;
 
@@ -94,17 +115,17 @@ setInterval(() => {
   }
 
   const imageWidth = images[0].offsetWidth + 24;
-  carouselTrack.style.transform = `translateX(-${currentCarousel * imageWidth}px)`;
+  track.style.transform = `translateX(-${currentCarousel * imageWidth}px)`;
 }, 4000);
 
 /* ========================= */
-/* MÚSICA BACKGROUND */
+/* MUSICA LOGIC */
 /* ========================= */
 const music = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
 let playing = false;
 
-if (musicToggle) {
+if (musicToggle && music) {
   musicToggle.addEventListener("click", async () => {
     if (!playing) {
       await music.play();
@@ -119,7 +140,7 @@ if (musicToggle) {
 }
 
 /* ========================= */
-/* MENU MOBILE */
+/* MENU MOBILE LOGIC */
 /* ========================= */
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -127,10 +148,14 @@ const mobileMenu = document.getElementById("mobileMenu");
 if (menuToggle && mobileMenu) {
   menuToggle.addEventListener("click", () => {
     mobileMenu.classList.toggle("active");
-    menuToggle.innerHTML = mobileMenu.classList.contains("active") ? "✕" : "☰";
+    if (mobileMenu.classList.contains("active")) {
+      menuToggle.innerHTML = "✕";
+    } else {
+      menuToggle.innerHTML = "☰";
+    }
   });
 
-  // Fechar menu ao clicar em um link
+  // Fecha o menu mobile de forma automática ao clicar em qualquer item
   document.querySelectorAll(".mobile-menu a").forEach(link => {
     link.addEventListener("click", () => {
       mobileMenu.classList.remove("active");
