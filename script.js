@@ -7,17 +7,17 @@ let isPlaying = false;
 
 function startSite() {
   const welcomeScreen = document.getElementById('welcomeScreen');
-  welcomeScreen.style.opacity = '0';
+  if(welcomeScreen) welcomeScreen.style.opacity = '0';
   
   if(music) {
     music.play().then(() => {
       isPlaying = true;
-      musicToggle.innerHTML = "❚❚";
+      if(musicToggle) musicToggle.innerHTML = "❚❚";
     }).catch((e) => console.log("Áudio bloqueado pelo navegador:", e));
   }
   
   setTimeout(() => {
-    welcomeScreen.style.display = 'none';
+    if(welcomeScreen) welcomeScreen.style.display = 'none';
   }, 800);
 }
 
@@ -194,23 +194,34 @@ function copyMapAddress() {
 }
 
 /* ========================================= */
-/* 6. GERADOR DE PIX COPIA E COLA OFICIAL    */
+/* 6. GERADOR DE PIX COPIA E COLA CORRIGIDO  */
 /* ========================================= */
 function removeAcentos(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\s]/gi, '');
 }
 
 function gerarPayloadPix(valorStr, descricao) {
-  const chave = "31993539240";
-  const nome = removeAcentos("Igor Bruno Alves Malta").substring(0,25);
+  // ATENÇÃO: Chaves de celular exigem o +55 na frente! 
+  // O código não roda nos bancos sem ele.
+  const chave = "+5531993539240"; 
+  const nome = "IGOR BRUNO ALVES MALTA".substring(0, 25);
   const cidade = "Belo Horizonte";
+  
+  // Limpa o formato de moeda para o padrão do Banco Central (ex: 5353.23)
   const valorNum = parseFloat(valorStr.replace(/\./g, '').replace(',', '.')).toFixed(2);
+  
+  // Limpa caracteres especiais do comentário
   const desc = removeAcentos(descricao).substring(0, 40);
 
-  const tlv = (id, val) => id + val.length.toString().padStart(2, '0') + val;
+  // Função criadora de TLV (Tag, Length, Value)
+  const tlv = (id, val) => {
+    const strVal = String(val);
+    const len = strVal.length.toString().padStart(2, '0');
+    return id + len + strVal;
+  };
 
-  let merchantAccount = tlv('00', 'br.gov.bcb.pix') + tlv('01', chave);
-  if(desc) merchantAccount += tlv('02', desc);
+  // Montagem da estrutura EMV padrão do PIX
+  let merchantAccount = tlv('00', 'br.gov.bcb.pix') + tlv('01', chave) + tlv('02', desc);
 
   let payload = tlv('00', '01') + 
                 tlv('26', merchantAccount) +
@@ -220,19 +231,23 @@ function gerarPayloadPix(valorStr, descricao) {
                 tlv('58', 'BR') + 
                 tlv('59', nome) + 
                 tlv('60', cidade) + 
-                tlv('62', tlv('05', '***'));
-                
-  payload += '6304';
+                tlv('62', tlv('05', '***')) +
+                '6304'; // Finaliza com a TAG do CRC16
 
+  // Cálculo matemático do CRC16 CCITT
   let crc = 0xFFFF;
   for (let i = 0; i < payload.length; i++) {
-    crc ^= payload.charCodeAt(i) << 8;
+    crc ^= (payload.charCodeAt(i) << 8) & 0xFFFF;
     for (let j = 0; j < 8; j++) {
-      if ((crc & 0x8000) !== 0) crc = (crc << 1) ^ 0x1021;
-      else crc = crc << 1;
+      if ((crc & 0x8000) !== 0) {
+        crc = ((crc << 1) ^ 0x1021) & 0xFFFF;
+      } else {
+        crc = (crc << 1) & 0xFFFF;
+      }
     }
   }
-  const crcFinal = (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+  const crcFinal = crc.toString(16).toUpperCase().padStart(4, '0');
+  
   return payload + crcFinal;
 }
 
@@ -240,6 +255,7 @@ function openPixModal(name, price) {
   document.getElementById('pixTargetName').innerText = name;
   document.getElementById('pixTargetPrice').innerText = price;
   
+  // Gera a string na hora que o usuário clica no presente
   const pixCopiaECola = gerarPayloadPix(price, name);
   document.getElementById('realPixString').value = pixCopiaECola;
 
