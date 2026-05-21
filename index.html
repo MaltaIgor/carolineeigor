@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caroline & Igor</title>
-  
+
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/833/833472.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <nav class="navbar">
     <div class="nav-container">
-      <div class="logo">Caroline & Igor</div>
+      <div class="logo">C & I</div>
+
       <div class="menu desktop-menu">
         <a href="#historia">História</a>
         <a href="#galeria">Fotos</a>
         <a href="#eventos">Evento</a>
-        <a href="#presentes" class="gift-highlight">Lista de Presentes</a>
+        <a href="presentes.html" class="gift-highlight">Lista de Presentes</a>
         <a href="#rsvp" class="rsvp-highlight">Confirmar Presença</a>
       </div>
+
       <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
 
@@ -29,7 +34,7 @@
       <a href="#historia">História</a>
       <a href="#galeria">Fotos</a>
       <a href="#eventos">Evento</a>
-      <a href="#presentes">Lista de Presentes</a>
+      <a href="presentes.html">Lista de Presentes</a>
       <a href="#rsvp">Confirmar Presença</a>
     </div>
   </nav>
@@ -37,11 +42,11 @@
   <header class="hero">
     <div class="hero-slider" id="heroSlider"></div>
     <div class="overlay"></div>
-    
+
     <div class="hero-content">
-      <h1>Caroline & Igor</h1>
+      <h1 class="nomes-casal">Caroline & Igor</h1>
       <p>31 DE OUTUBRO DE 2026</p>
-      <a href="#presentes" class="primary-btn">Ver Lista de Presentes</a>
+      <a href="presentes.html" class="primary-btn">Ver Lista de Presentes</a>
     </div>
   </header>
 
@@ -49,56 +54,88 @@
     <div class="container">
       <h2>Contagem Regressiva</h2>
       <div class="timer">
-        <div><span id="days">00</span><small>Dias</small></div>
-        <div><span id="hours">00</span><small>Horas</small></div>
-        <div><span id="minutes">00</span><small>Minutos</small></div>
-        <div><span id="seconds">00</span><small>Segundos</small></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="historia" class="historia-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="subtitle">NOSSA HISTÓRIA</span>
-        <h2>Dois caminhos.<br>Uma escolha.</h2>
-      </div>
-
-      <div class="historia-content">
-        <div class="card intro-card">
-          <p>Nossa história começou de um jeito improvável: em um aplicativo de relacionamento. Entre tantas conversas e encontros que poderiam nunca ter acontecido, encontramos um no outro algo diferente — conexão, identificação e vontade de ficar.</p>
+        <div>
+          <span id="days">00</span>
+          <small>Dias</small>
         </div>
-
-        <div class="historia-grid">
-          <div class="card">
-            <h3>Sintonia</h3>
-            <p>Logo percebemos que tínhamos muito mais em comum do que imaginávamos. Além da sintonia natural, dividíamos a paixão pelo mesmo time, assunto que virou motivo de conversa, brincadeiras e muitos momentos juntos.</p>
-          </div>
-          <div class="card">
-            <h3>Família</h3>
-            <p>Nossas famílias se conectaram, se acolheram e fizeram com que tudo parecesse ainda mais certo. Aos poucos, deixamos de construir apenas um relacionamento entre duas pessoas e passamos a construir uma verdadeira união.</p>
-          </div>
+        <div>
+          <span id="hours">00</span>
+          <small>Horas</small>
         </div>
-
-        <div class="quote-card">
-          <p>“Nosso amor nunca foi baseado apenas nos momentos bons. Ele foi fortalecido justamente pelas provas que enfrentamos ao longo do caminho.”</p>
+        <div>
+          <span id="minutes">00</span>
+          <small>Minutos</small>
         </div>
-
-        <div class="card final-card">
-          <p>Hoje, depois de quase dois anos morando juntos, conhecemos um ao outro de verdade: as qualidades, os defeitos, as manias, os sonhos, os medos e até os silêncios.</p>
-          <p>E mesmo conhecendo profundamente quem o outro é, escolhemos continuar caminhando lado a lado, todos os dias.</p>
-          <div class="divider"></div>
-          <p class="highlight-text">O casamento para nós não é o começo da nossa história. É a celebração de tudo o que já construímos até aqui e da certeza de que queremos continuar vivendo essa vida juntos.</p>
+        <div>
+          <span id="seconds">00</span>
+          <small>Segundos</small>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="galeria" class="galeria-section">
+  <section id="historia" style="background:#FAF8F5; position:relative; overflow:hidden;">
     <div class="container">
-      <div class="section-header">
+      <div style="text-align:center; margin-bottom:80px;">
+        <span style="color:#5F742F; letter-spacing:.22em; font-size:.8rem; font-weight:600;">NOSSA HISTÓRIA</span>
+        <h2 style="margin-top:20px; font-size:4rem; line-height:1.1;">Dois caminhos.<br>Uma escolha.</h2>
+      </div>
+
+      <div style="max-width:900px; margin:auto;">
+        <div style="background:white; padding:55px; border-radius:32px; margin-bottom:35px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
+          <p style="font-size:1.15rem; line-height:2.2; color:#555;">
+            Nossa história começou de um jeito improvável: em um aplicativo de relacionamento.
+            Entre tantas conversas e encontros que poderiam nunca ter acontecido, encontramos um no outro
+            algo diferente — conexão, identificação e vontade de ficar.
+          </p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:35px; margin-bottom:35px;" class="historia-grid">
+          <div style="background:white; padding:45px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
+            <h3 style="margin-bottom:25px; color:#5F742F; font-size:1.6rem;">Sintonia</h3>
+            <p style="line-height:2; color:#666;">
+              Logo percebemos que tínhamos muito mais em comum do que imaginávamos.
+              Além da sintonia natural, dividíamos a paixão pelo mesmo time, assunto que virou motivo de conversa,
+              brincadeiras e muitos momentos juntos.
+            </p>
+          </div>
+
+          <div style="background:white; padding:45px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
+            <h3 style="margin-bottom:25px; color:#5F742F; font-size:1.6rem;">Família</h3>
+            <p style="line-height:2; color:#666;">
+              Nossas famílias se conectaram, se acolheram e fizeram com que tudo parecesse ainda mais certo.
+              Aos poucos, deixamos de construir apenas um relacionamento entre duas pessoas e passamos a construir uma verdadeira união.
+            </p>
+          </div>
+        </div>
+
+        <div style="background:#5F742F; padding:70px; border-radius:36px; margin-bottom:35px; text-align:center; color:white; box-shadow:0 20px 60px rgba(95,116,47,.28);">
+          <p style="font-size:1.45rem; line-height:2; font-family:'Playfair Display', serif; font-style: italic;">
+            “Nosso amor nunca foi baseado apenas nos momentos bons. Ele foi fortalecido justamente pelas provas que enfrentamos ao longo do caminho.”
+          </p>
+        </div>
+
+        <div style="background:white; padding:60px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05); text-align:center;">
+          <p style="font-size:1.1rem; line-height:2.2; color:#555; margin-bottom:35px;">
+            Hoje, depois de quase dois anos morando juntos, conhecemos um ao outro de verdade: as qualidades, os defeitos, as manias, os sonhos, os medos e até os silêncios.
+          </p>
+          <p style="font-size:1.1rem; line-height:2.2; color:#555; margin-bottom:35px;">
+            E mesmo conhecendo profundamente quem o outro é, escolhemos continuar caminhando lado a lado, todos os dias.
+          </p>
+          <div style="width:120px; height:1px; background:#D8D2C7; margin:40px auto;"></div>
+          <p style="font-size:1.25rem; line-height:2; color:#2F2F2F; font-family:'Playfair Display', serif;">
+            O casamento para nós não é o começo da nossa história. É a celebração de tudo o que já construímos até aqui e da certeza de que queremos continuar vivendo essa vida juntos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" style="overflow:hidden; background:white;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:60px;">
         <h2>Nossos Momentos</h2>
-        <p class="description">Alguns registros da nossa história</p>
+        <p style="margin-top:20px; color:#777;">Alguns registros da nossa história</p>
       </div>
 
       <div class="carousel-wrapper">
@@ -112,68 +149,88 @@
   <section class="gift" id="presentes">
     <div class="container">
       <h2>Lista de Presentes</h2>
-      <p>Sua presença será o nosso maior presente. Mas caso deseje nos presentear, preparamos uma lista especial com muito carinho para esse novo começo.</p>
-      <a href="#" target="_blank" class="primary-btn btn-white">ACESSAR LISTA</a>
+      <p>
+        Sua presença será o nosso maior presente. Mas caso deseje nos presentear, preparamos uma lista especial com muito carinho para esse novo começo.
+      </p>
+      <a href="presentes.html" class="primary-btn-gift">ACESSAR LISTA</a>
     </div>
   </section>
 
-  <section class="rsvp-minimalist" id="rsvp">
-    <div class="container minimalist-container">
-      <span class="subtitle">CONFIRMAÇÃO DE PRESENÇA</span>
+  <section class="rsvp" id="rsvp">
+    <div class="container" style="max-width:850px; margin: auto;">
+      <span style="letter-spacing:.25em; font-size:.8rem; font-weight:600; color: var(--green-dark); display: block; margin-bottom: 20px;">
+        CONFIRMAÇÃO DE PRESENÇA
+      </span>
+
       <h2>Esperamos você<br>nesse momento especial</h2>
-      <p>Para confirmar sua presença, clique no botão abaixo e fale diretamente com nosso cerimonialista pelo WhatsApp.</p>
-      
-      <a href="https://wa.me/5531993748543?text=Olá!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento%20de%20Caroline%20%26%20Igor." target="_blank" class="btn-outline-primary">
-        <span class="icon">✆</span> Confirmar Presença no WhatsApp
+
+      <p style="margin-top:35px; line-height:2; font-size:1.08rem; color:#666; max-width: 650px; margin-inline: auto;">
+        Para confirmar sua presença, clique no botão abaixo e fale diretamente com nosso cerimonialista pelo WhatsApp.
+      </p>
+
+      <a href="https://wa.me/5531993748543?text=Olá!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento%20de%20Caroline%20%26%20Igor." target="_blank" class="btn-rsvp-minimalist">
+        <span>✆</span> Confirmar Presença no WhatsApp
       </a>
     </div>
   </section>
 
-  <section id="eventos" class="eventos-section">
+  <section id="eventos" style="background:#F8F6F2; padding:120px 24px;">
     <div class="container">
-      <div class="section-header">
+      <div style="text-align:center; margin-bottom:80px;">
         <h2>O Grande Dia</h2>
-        <p class="description">Preparamos cada detalhe com muito carinho para celebrar esse momento ao lado das pessoas mais importantes das nossas vidas.</p>
+        <p style="margin-top:20px; color:#777; max-width:700px; margin-inline:auto; line-height:1.9;">
+          Preparamos cada detalhe com muito carinho para celebrar esse momento ao lado das pessoas mais importantes das nossas vidas.
+        </p>
       </div>
 
-      <div class="evento-grid">
-        <div class="evento-img">
-          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGf-dAlCrgIUy3ASI_1dxmhGPx9xjCC1HzoW_ZQ8jsBk69VvzfwuU3vEPt9603GaqpLkrW6aU0DEljNrGghlCgQ_ft6C_Ui2zh2OpU6hFFRrPMV_TVy-4m9rmLNuYrCu1A6agBABw=w1400-h900" alt="Igreja da Boa Viagem">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; margin-bottom:100px;" class="evento-grid">
+        <div>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGf-dAlCrgIUy3ASI_1dxmhGPx9xjCC1HzoW_ZQ8jsBk69VvzfwuU3vEPt9603GaqpLkrW6aU0DEljNrGghlCgQ_ft6C_Ui2zh2OpU6hFFRrPMV_TVy-4m9rmLNuYrCu1A6agBABw=w1400-h900" style="width:100%; height:650px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);">
         </div>
-        <div class="evento-info">
-          <span class="subtitle">CERIMÔNIA</span>
-          <h3>Igreja da Boa Viagem</h3>
-          <p>A cerimônia acontecerá na tradicional Igreja Nossa Senhora da Boa Viagem, um dos lugares mais marcantes e especiais de Belo Horizonte.<br><br>31 de Outubro de 2026<br>20:30</p>
-          <a href="https://maps.google.com/?q=Igreja+Nossa+Senhora+da+Boa+Viagem" target="_blank" class="primary-btn">Ver Localização</a>
+        <div>
+          <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">CERIMÔNIA</span>
+          <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Igreja da Boa Viagem</h3>
+          <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">
+            A cerimônia acontecerá na tradicional Igreja Nossa Senhora da Boa Viagem, um dos lugares mais marcantes e especiais de Belo Horizonte.
+            <br><br>
+            31 de Outubro de 2026<br>20:30
+          </p>
+          <a href="https://maps.google.com/?q=Igreja+Nossa+Senhora+da+Boa+Viagem" target="_blank" class="primary-btn" style="display:inline-block; margin-top:35px;">Ver Localização</a>
         </div>
       </div>
 
-      <div class="map-container">
+      <div style="border-radius:32px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.08); margin-bottom:120px;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.9024573172837!2d-43.9374922247729!3d-19.928514881459588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e7b4c1fc01%3A0xfab0e561649ce90e!2sIgreja%20Nossa%20Senhora%20da%20Boa%20Viagem%20Marco%20Zero%20de%20Belo%20Horizonte!5e0!3m2!1spt-BR!2sbr!4v1779313193735!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
 
-      <div class="evento-grid reverse-mobile">
-        <div class="evento-info">
-          <span class="subtitle">RECEPÇÃO</span>
-          <h3>Casa Jardim</h3>
-          <p>Após a cerimônia, celebraremos esse momento especial ao lado da nossa família e amigos na Casa Jardim.<br><br>Esperamos você para viver essa noite inesquecível conosco.</p>
-          <a href="https://maps.google.com/?q=Casa+Jardim+Belo+Horizonte" target="_blank" class="primary-btn">Ver Localização</a>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;" class="evento-grid">
+        <div>
+          <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">RECEPÇÃO</span>
+          <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Casa Jardim</h3>
+          <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">
+            Após a cerimônia, celebraremos esse momento especial ao lado da nossa família e amigos na Casa Jardim.
+            <br><br>
+            Esperamos você para viver essa noite inesquecível conosco.
+          </p>
+          <a href="https://maps.google.com/?q=Casa+Jardim+Belo+Horizonte" target="_blank" class="primary-btn" style="display:inline-block; margin-top:35px;">Ver Localização</a>
         </div>
-        <div class="evento-img">
-          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGLf9y4g38Jo1sGr2Nztjd-Lx7tdRtEFExsFVzMS-z9WuiPNNLfMFzwYHpvpUXPwQMMMMa2cD79IoBD0oLPeMuctPNUn13-UBxN1MLa3TOr0Inc1qHMHkCvigh2tcwlaYR8cmPItQ=w1400-h900" alt="Casa Jardim">
+        <div>
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGLf9y4g38Jo1sGr2Nztjd-Lx7tdRtEFExsFVzMS-z9WuiPNNLfMFzwYHpvpUXPwQMMMMa2cD79IoBD0oLPeMuctPNUn13-UBxN1MLa3TOr0Inc1qHMHkCvigh2tcwlaYR8cmPItQ=w1400-h900" style="width:100%; height:650px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);">
         </div>
       </div>
 
-      <div class="map-container last-map">
+      <div style="border-radius:32px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.08); margin-top:60px;">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.7445949572475!2d-43.954134807453144!3d-19.93516483363632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697fb22bba589%3A0x2da7f0a0b2f6464a!2sCASA%20JARDIM%20(Espa%C3%A7o%20Festas%20e%20Eventos%20Corporativos%20.%20Grupo%20Celebre%20Produtora)!5e0!3m2!1spt-BR!2sbr!4v1779313314630!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </section>
 
   <footer>
-    <h3>Esperamos você</h3>
-    <p>Caroline & Igor · 2026</p>
+    <h3 style="font-size:2.5rem; color:#5F742F; font-family: 'Great Vibes', cursive; font-weight: 400;">Esperamos você</h3>
+    <p style="margin-top:20px; color:#777;">Caroline & Igor · 2026</p>
   </footer>
+
+  <script src="script.js"></script>
 
   <div class="music-player">
     <button class="music-btn" id="musicToggle">♫</button>
@@ -182,6 +239,5 @@
     </audio>
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>
