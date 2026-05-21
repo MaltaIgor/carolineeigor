@@ -10,21 +10,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* TELA DE BOAS VINDAS */
+    .welcome-screen { position: fixed; inset: 0; background: #FAF8F5; z-index: 999999; display: flex; align-items: center; justify-content: center; text-align: center; transition: opacity 0.8s ease; }
+    /* MODAIS (PIX E MAPA) */
+    .custom-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 100000; backdrop-filter: blur(5px); }
+    .modal-box { background: white; padding: 40px; border-radius: 20px; width: 90%; max-width: 500px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.2); max-height: 90vh; overflow-y: auto; }
+    .modal-box h2 { font-size: 2.2rem; color: #5F742F; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+    .pix-instructions { text-align: left; background: #F5F3EF; padding: 18px; border-radius: 12px; margin-bottom: 15px; color: #444; font-size: 0.95rem; line-height: 1.7; }
+    .pix-instructions strong { color: #2F2F2F; }
+    .copy-btn { background: #5F742F; color: white; border: none; padding: 16px 30px; border-radius: 100px; cursor: pointer; font-size: 1rem; font-weight: 600; width: 100%; margin-bottom: 15px; font-family: 'Montserrat', sans-serif; transition: 0.3s; }
+    .copy-btn:hover { background: #4a5c24; }
+    .close-btn { background: transparent; color: #888; border: none; cursor: pointer; text-decoration: underline; font-size: 0.95rem; margin-top: 10px; }
+    /* ANIMAÇÕES */
+    .reveal { opacity: 0; transform: translateY(60px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
 
   <div id="welcomeScreen" class="welcome-screen">
-    <div class="welcome-content">
-      <h1 style="font-family:'Great Vibes', cursive; font-size: 4.5rem; color: #5F742F; margin-bottom: 20px;">Caroline & Igor</h1>
-      <p style="font-size: 1.1rem; color: #666; margin-bottom: 35px; letter-spacing: 0.1em;">Sejam bem-vindos! Ative o som para uma experiência completa.</p>
-      <button onclick="startSite()" class="primary-btn">Abrir Convite</button>
+    <div style="padding: 20px;">
+      <h1 style="font-family:'Great Vibes', cursive; font-size: 5rem; color: #5F742F; margin-bottom: 20px;">C & I</h1>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 35px; letter-spacing: 0.1em; line-height: 1.6;">Sejam bem-vindos ao nosso site!<br>Ative o som para uma experiência completa.</p>
+      <button onclick="startSite()" style="background:#5F742F; color:white; padding:18px 45px; border:none; border-radius:100px; font-size:1.1rem; font-weight:600; cursor:pointer; font-family:'Montserrat', sans-serif;">Abrir Convite</button>
     </div>
   </div>
 
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo" onclick="showHome()" style="cursor:pointer;">C & I</div>
-
       <div class="menu desktop-menu">
         <a href="#historia" onclick="showHome()">História</a>
         <a href="#galeria" onclick="showHome()">Fotos</a>
@@ -32,15 +48,13 @@
         <a href="javascript:void(0)" onclick="showPresentes()" class="gift-highlight">Lista de Presentes</a>
         <a href="#rsvp" onclick="showHome()" class="rsvp-highlight">Confirmar Presença</a>
       </div>
-
       <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
-
     <div class="mobile-menu" id="mobileMenu">
       <a href="#historia" onclick="showHome(); closeMobileMenu();">História</a>
       <a href="#galeria" onclick="showHome(); closeMobileMenu();">Fotos</a>
       <a href="#eventos" onclick="showHome(); closeMobileMenu();">Evento</a>
-      <a href="javascript:void(0)" onclick="showPresentes(); closeMobileMenu();">Lista de Presentes</a>
+      <a href="javascript:void(0)" onclick="showPresentes(); closeMobileMenu();" style="color:#5F742F; font-weight:700;">Lista de Presentes</a>
       <a href="#rsvp" onclick="showHome(); closeMobileMenu();">Confirmar Presença</a>
     </div>
   </nav>
@@ -53,7 +67,7 @@
       <div class="hero-content">
         <h1 class="nomes-casal reveal">Caroline & Igor</h1>
         <p class="reveal">31 DE OUTUBRO DE 2026</p>
-        <a href="javascript:void(0)" onclick="showPresentes()" class="primary-btn reveal">Ver Lista de Presentes</a>
+        <button onclick="showPresentes()" class="primary-btn reveal" style="border:none; cursor:pointer;">Ver Lista de Presentes</button>
       </div>
     </header>
 
@@ -134,7 +148,7 @@
         <h2>Esperamos você<br>nesse momento especial</h2>
         <p style="margin-top:35px; line-height:2; font-size:1.08rem; color:#666; max-width: 650px; margin-inline: auto;">Para confirmar sua presença, clique no botão abaixo e fale diretamente com nosso cerimonialista pelo WhatsApp.</p>
         <a href="https://wa.me/5531993748543?text=Olá!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento%20de%20Caroline%20%26%20Igor." target="_blank" class="btn-rsvp-minimalist">
-          <span>✆</span> Confirmar Presença no WhatsApp
+          <span style="font-size: 1.5rem;">✆</span> Confirmar Presença no WhatsApp
         </a>
       </div>
     </section>
@@ -148,13 +162,13 @@
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; margin-bottom:100px;" class="evento-grid reveal">
           <div>
-            <img src="https://images.unsplash.com/photo-1543360520-22c6e612ed96?w=600" style="width:100%; height:550px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);" alt="Igreja">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGf-dAlCrgIUy3ASI_1dxmhGPx9xjCC1HzoW_ZQ8jsBk69VvzfwuU3vEPt9603GaqpLkrW6aU0DEljNrGghlCgQ_ft6C_Ui2zh2OpU6hFFRrPMV_TVy-4m9rmLNuYrCu1A6agBABw=w1400-h900" style="width:100%; height:550px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);" alt="Igreja">
           </div>
           <div>
             <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">CERIMÔNIA</span>
             <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Igreja da Boa Viagem</h3>
             <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">A cerimônia acontecerá na tradicional Igreja Nossa Senhora da Boa Viagem, um dos lugares mais marcantes e especiais de Belo Horizonte.<br><br>31 de Outubro de 2026<br>20:30</p>
-            <button class="primary-btn" style="display:inline-block; margin-top:35px; border:none; cursor:pointer;" onclick="openMap('Igreja da Boa Viagem', 'R. Sergipe, 475 - Boa Viagem, Belo Horizonte - MG, 30130-171', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.96317208985!2d-43.933355024095696!3d-19.92592533816654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e4b6933c29%3A0xc095c510dbd8bbec!2sSantu%C3%A1rio%20Arquidiocesano%20Nossa%20Senhora%20da%20Boa%20Viagem!5e0!3m2!1spt-BR!2sbr!4v1716301234567!5m2!1spt-BR!2sbr')">Ver Localização</button>
+            <button class="primary-btn" style="display:inline-block; margin-top:35px; border:none; cursor:pointer;" onclick="openMap('Igreja da Boa Viagem', 'R. Sergipe, 475 - Boa Viagem, Belo Horizonte - MG, 30130-171', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.9024573172837!2d-43.9374922247729!3d-19.928514881459588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e7b4c1fc01%3A0xfab0e561649ce90e!2sIgreja%20Nossa%20Senhora%20da%20Boa%20Viagem%20Marco%20Zero%20de%20Belo%20Horizonte!5e0!3m2!1spt-BR!2sbr!4v1779313193735!5m2!1spt-BR!2sbr')">Ver Localização</button>
           </div>
         </div>
 
@@ -163,10 +177,10 @@
             <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">RECEPÇÃO</span>
             <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Casa Jardim</h3>
             <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">Após a cerimônia, celebraremos esse momento especial ao lado da nossa família e amigos na Casa Jardim.<br><br>Esperamos você para viver essa noite inesquecível conosco.</p>
-            <button class="primary-btn" style="display:inline-block; margin-top:35px; border:none; cursor:pointer;" onclick="openMap('Casa Jardim', 'Belo Horizonte - MG (Endereço a definir)', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750!2d-43.933!3d-19.925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU1JzMwLjAiUyA0M8KwNTUnNTguOCJX!5e0!3m2!1spt-BR!2sbr!4v1716300000000!5m2!1spt-BR!2sbr')">Ver Localização</button>
+            <button class="primary-btn" style="display:inline-block; margin-top:35px; border:none; cursor:pointer;" onclick="openMap('Casa Jardim', 'Belo Horizonte - MG (Endereço a definir)', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.7445949572475!2d-43.954134807453144!3d-19.93516483363632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697fb22bba589%3A0x2da7f0a0b2f6464a!2sCASA%20JARDIM%20(Espa%C3%A7o%20Festas%20e%20Eventos%20Corporativos%20.%20Grupo%20Celebre%20Produtora)!5e0!3m2!1spt-BR!2sbr!4v1779313314630!5m2!1spt-BR!2sbr')">Ver Localização</button>
           </div>
           <div>
-            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" style="width:100%; height:550px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);" alt="Festa">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGLf9y4g38Jo1sGr2Nztjd-Lx7tdRtEFExsFVzMS-z9WuiPNNLfMFzwYHpvpUXPwQMMMMa2cD79IoBD0oLPeMuctPNUn13-UBxN1MLa3TOr0Inc1qHMHkCvigh2tcwlaYR8cmPItQ=w1400-h900" style="width:100%; height:550px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);" alt="Festa">
           </div>
         </div>
       </div>
@@ -177,10 +191,12 @@
       <p style="margin-top:20px; color:#777;">Caroline & Igor · 2026</p>
     </footer>
 
-  </div> <div id="presentes-view" style="display:none; padding-top: 80px; background: #FAF8F5;">
+  </div>
+
+  <div id="presentes-view" style="display:none; padding-top: 100px; background: #FAF8F5;">
     <div class="header-gifts">
       <h1>Lista de Presentes</h1>
-      <p>Escolha um item divertido para contribuir com a nossa Lua de Mel!</p>
+      <p style="margin-top: 15px; color: #666; font-size: 1.1rem;">Escolha um item divertido para contribuir com a nossa Lua de Mel!</p>
     </div>
 
     <div class="grid-gifts">
@@ -227,7 +243,6 @@
       <div class="gift-card"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400" alt="Item"><h3>Garanta a "internet" banda larga por 1 mês na casa nova dos noivos</h3><div class="price">R$ 174,27</div><button class="buy-btn" onclick="openPixModal('Internet banda larga', '174,27')">Comprar</button></div>
       <div class="gift-card"><img src="https://images.unsplash.com/photo-1518133680790-399fcd6a3b2b?w=400" alt="Item"><h3>Raspadinha da sorte</h3><div class="price">R$ 174,27</div><button class="buy-btn" onclick="openPixModal('Raspadinha da sorte', '174,27')">Comprar</button></div>
     </div>
-    
     <footer style="margin-top: 40px;">
       <h3 style="font-size:2rem; color:#5F742F; font-family: 'Great Vibes', cursive;">Obrigado pelo carinho!</h3>
       <p style="margin-top:10px; color:#777;">Caroline & Igor</p>
@@ -244,25 +259,20 @@
         <p><strong>Valor:</strong> R$ <span id="pixTargetPrice"></span> (BRL)</p>
       </div>
       <p style="font-size: 0.95rem; color: #666; margin-top: 15px;">Copie o código abaixo e cole no seu aplicativo do banco usando a opção <strong>Pix Copia e Cola</strong>.</p>
-      
-      <textarea id="realPixString" style="display:none;"></textarea>
-      
+      <textarea id="realPixString" style="opacity:0; position:absolute; z-index:-1;"></textarea>
       <button class="copy-btn" id="btnCopiarPix" onclick="copyPixCode()">Copiar Código PIX</button>
       <button class="close-btn" onclick="closePixModal()">Fechar Janela</button>
     </div>
   </div>
 
   <div class="custom-modal" id="modalMap">
-    <div class="modal-box" style="max-width: 600px; width: 95%;">
+    <div class="modal-box" style="max-width: 600px;">
       <h2 id="mapTitle" style="margin-bottom: 5px;">Local</h2>
-      <p id="mapAddress" style="color: #666; font-size: 0.95rem; margin-bottom: 20px;"></p>
-      
-      <button class="copy-btn" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 20px;" onclick="copyMapAddress()">Copiar Endereço</button>
-      
+      <p id="mapAddress" style="color: #666; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.6;"></p>
+      <button class="copy-btn" id="btnCopiarEndereco" style="padding: 12px 20px; font-size: 0.9rem; margin-bottom: 25px;" onclick="copyMapAddress()">Copiar Endereço</button>
       <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-        <iframe id="mapIframe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe id="mapIframe" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
-      
       <button class="close-btn" style="margin-top: 20px;" onclick="closeMapModal()">Fechar</button>
     </div>
   </div>
@@ -270,7 +280,6 @@
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
-  
   <div class="music-player">
     <button class="music-btn" id="musicToggle">♫</button>
   </div>
