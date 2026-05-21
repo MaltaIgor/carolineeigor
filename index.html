@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,232 +11,270 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+  <div id="welcomeScreen" class="welcome-screen">
+    <div class="welcome-content">
+      <h1 style="font-family:'Great Vibes', cursive; font-size: 4.5rem; color: #5F742F; margin-bottom: 20px;">Caroline & Igor</h1>
+      <p style="font-size: 1.1rem; color: #666; margin-bottom: 35px; letter-spacing: 0.1em;">Sejam bem-vindos! Ative o som para uma experiência completa.</p>
+      <button onclick="startSite()" class="primary-btn">Abrir Convite</button>
+    </div>
+  </div>
 
   <nav class="navbar">
     <div class="nav-container">
-      <div class="logo">C & I</div>
+      <div class="logo" onclick="showHome()" style="cursor:pointer;">C & I</div>
 
       <div class="menu desktop-menu">
-        <a href="#historia">História</a>
-        <a href="#galeria">Fotos</a>
-        <a href="#eventos">Evento</a>
-        <a href="presentes.html" class="gift-highlight">Lista de Presentes</a>
-        <a href="#rsvp" class="rsvp-highlight">Confirmar Presença</a>
+        <a href="#historia" onclick="showHome()">História</a>
+        <a href="#galeria" onclick="showHome()">Fotos</a>
+        <a href="#eventos" onclick="showHome()">Evento</a>
+        <a href="javascript:void(0)" onclick="showPresentes()" class="gift-highlight">Lista de Presentes</a>
+        <a href="#rsvp" onclick="showHome()" class="rsvp-highlight">Confirmar Presença</a>
       </div>
 
       <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#historia">História</a>
-      <a href="#galeria">Fotos</a>
-      <a href="#eventos">Evento</a>
-      <a href="presentes.html">Lista de Presentes</a>
-      <a href="#rsvp">Confirmar Presença</a>
+      <a href="#historia" onclick="showHome(); closeMobileMenu();">História</a>
+      <a href="#galeria" onclick="showHome(); closeMobileMenu();">Fotos</a>
+      <a href="#eventos" onclick="showHome(); closeMobileMenu();">Evento</a>
+      <a href="javascript:void(0)" onclick="showPresentes(); closeMobileMenu();">Lista de Presentes</a>
+      <a href="#rsvp" onclick="showHome(); closeMobileMenu();">Confirmar Presença</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="hero-slider" id="heroSlider"></div>
-    <div class="overlay"></div>
+  <div id="home-view">
+    
+    <header class="hero">
+      <div class="hero-slider" id="heroSlider"></div>
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1 class="nomes-casal reveal">Caroline & Igor</h1>
+        <p class="reveal">31 DE OUTUBRO DE 2026</p>
+        <a href="javascript:void(0)" onclick="showPresentes()" class="primary-btn reveal">Ver Lista de Presentes</a>
+      </div>
+    </header>
 
-    <div class="hero-content">
-      <h1 class="nomes-casal">Caroline & Igor</h1>
-      <p>31 DE OUTUBRO DE 2026</p>
-      <a href="presentes.html" class="primary-btn">Ver Lista de Presentes</a>
-    </div>
-  </header>
-
-  <section class="countdown">
-    <div class="container">
-      <h2>Contagem Regressiva</h2>
-      <div class="timer">
-        <div>
-          <span id="days">00</span>
-          <small>Dias</small>
-        </div>
-        <div>
-          <span id="hours">00</span>
-          <small>Horas</small>
-        </div>
-        <div>
-          <span id="minutes">00</span>
-          <small>Minutos</small>
-        </div>
-        <div>
-          <span id="seconds">00</span>
-          <small>Segundos</small>
+    <section class="countdown">
+      <div class="container reveal">
+        <h2>Contagem Regressiva</h2>
+        <div class="timer">
+          <div><span id="days">00</span><small>Dias</small></div>
+          <div><span id="hours">00</span><small>Horas</small></div>
+          <div><span id="minutes">00</span><small>Minutos</small></div>
+          <div><span id="seconds">00</span><small>Segundos</small></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="historia" style="background:#FAF8F5; position:relative; overflow:hidden;">
-    <div class="container">
-      <div style="text-align:center; margin-bottom:80px;">
-        <span style="color:#5F742F; letter-spacing:.22em; font-size:.8rem; font-weight:600;">NOSSA HISTÓRIA</span>
-        <h2 style="margin-top:20px; font-size:4rem; line-height:1.1;">Dois caminhos.<br>Uma escolha.</h2>
-      </div>
-
-      <div style="max-width:900px; margin:auto;">
-        <div style="background:white; padding:55px; border-radius:32px; margin-bottom:35px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
-          <p style="font-size:1.15rem; line-height:2.2; color:#555;">
-            Nossa história começou de um jeito improvável: em um aplicativo de relacionamento.
-            Entre tantas conversas e encontros que poderiam nunca ter acontecido, encontramos um no outro
-            algo diferente — conexão, identificação e vontade de ficar.
-          </p>
+    <section id="historia" style="background:#FAF8F5; position:relative; overflow:hidden;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:80px;" class="reveal">
+          <span style="color:#5F742F; letter-spacing:.22em; font-size:.8rem; font-weight:600;">NOSSA HISTÓRIA</span>
+          <h2 style="margin-top:20px; font-size:4rem; line-height:1.1;">Dois caminhos.<br>Uma escolha.</h2>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:35px; margin-bottom:35px;" class="historia-grid">
-          <div style="background:white; padding:45px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
-            <h3 style="margin-bottom:25px; color:#5F742F; font-size:1.6rem;">Sintonia</h3>
-            <p style="line-height:2; color:#666;">
-              Logo percebemos que tínhamos muito mais em comum do que imaginávamos.
-              Além da sintonia natural, dividíamos a paixão pelo mesmo time, assunto que virou motivo de conversa,
-              brincadeiras e muitos momentos juntos.
-            </p>
+        <div style="max-width:900px; margin:auto;">
+          <div class="reveal" style="background:white; padding:55px; border-radius:32px; margin-bottom:35px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
+            <p style="font-size:1.15rem; line-height:2.2; color:#555;">Nossa história começou de um jeito improvável: em um aplicativo de relacionamento. Entre tantas conversas e encontros que poderiam nunca ter acontecido, encontramos um no outro algo diferente — conexão, identificação e vontade de ficar.</p>
           </div>
 
-          <div style="background:white; padding:45px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
-            <h3 style="margin-bottom:25px; color:#5F742F; font-size:1.6rem;">Família</h3>
-            <p style="line-height:2; color:#666;">
-              Nossas famílias se conectaram, se acolheram e fizeram com que tudo parecesse ainda mais certo.
-              Aos poucos, deixamos de construir apenas um relacionamento entre duas pessoas e passamos a construir uma verdadeira união.
-            </p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:35px; margin-bottom:35px;" class="historia-grid">
+            <div class="reveal" style="background:white; padding:45px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
+              <h3 style="margin-bottom:25px; color:#5F742F; font-size:1.6rem;">Sintonia</h3>
+              <p style="line-height:2; color:#666;">Logo percebemos que tínhamos muito mais em comum do que imaginávamos. Além da sintonia natural, dividíamos a paixão pelo mesmo time, assunto que virou motivo de conversa, brincadeiras e muitos momentos juntos.</p>
+            </div>
+            <div class="reveal" style="background:white; padding:45px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05);">
+              <h3 style="margin-bottom:25px; color:#5F742F; font-size:1.6rem;">Família</h3>
+              <p style="line-height:2; color:#666;">Nossas famílias se conectaram, se acolheram e fizeram com que tudo parecesse ainda mais certo. Aos poucos, deixamos de construir apenas um relacionamento entre duas pessoas e passamos a construir uma verdadeira união.</p>
+            </div>
+          </div>
+
+          <div class="reveal" style="background:#5F742F; padding:70px; border-radius:36px; margin-bottom:35px; text-align:center; color:white; box-shadow:0 20px 60px rgba(95,116,47,.28);">
+            <p style="font-size:1.45rem; line-height:2; font-family:'Playfair Display', serif; font-style: italic;">“Nosso amor nunca foi baseado apenas nos momentos bons. Ele foi fortalecido justamente pelas provas que enfrentamos ao longo do caminho.”</p>
+          </div>
+
+          <div class="reveal" style="background:white; padding:60px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05); text-align:center;">
+            <p style="font-size:1.1rem; line-height:2.2; color:#555; margin-bottom:35px;">Hoje, depois de quase dois anos morando juntos, conhecemos um ao outro de verdade: as qualidades, os defeitos, as manias, os sonhos, os medos e até os silêncios.</p>
+            <p style="font-size:1.1rem; line-height:2.2; color:#555; margin-bottom:35px;">E mesmo conhecendo profundamente quem o outro é, escolhemos continuar caminhando lado a lado, todos os dias.</p>
+            <div style="width:120px; height:1px; background:#D8D2C7; margin:40px auto;"></div>
+            <p style="font-size:1.25rem; line-height:2; color:#2F2F2F; font-family:'Playfair Display', serif;">O casamento para nós não é o começo da nossa história. É a celebração de tudo o que já construímos até aqui e da certeza de que queremos continuar vivendo essa vida juntos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" style="overflow:hidden; background:white;">
+      <div class="container reveal">
+        <div style="text-align:center; margin-bottom:60px;">
+          <h2>Nossos Momentos</h2>
+          <p style="margin-top:20px; color:#777;">Alguns registros da nossa história</p>
+        </div>
+        <div class="carousel-wrapper">
+          <button class="carousel-btn prev" onclick="moveCarousel(-1)">←</button>
+          <div class="carousel-track" id="carouselTrack"></div>
+          <button class="carousel-btn next" onclick="moveCarousel(1)">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="gift" id="presentes-chamada">
+      <div class="container reveal">
+        <h2>Lista de Presentes</h2>
+        <p>Sua presença será o nosso maior presente. Mas caso deseje nos presentear, preparamos uma lista especial com muito carinho para esse novo começo.</p>
+        <button onclick="showPresentes()" class="primary-btn-gift">ACESSAR LISTA</button>
+      </div>
+    </section>
+
+    <section class="rsvp" id="rsvp">
+      <div class="container reveal" style="max-width:850px; margin: auto;">
+        <span style="letter-spacing:.25em; font-size:.8rem; font-weight:600; color: var(--green-dark); display: block; margin-bottom: 20px;">CONFIRMAÇÃO DE PRESENÇA</span>
+        <h2>Esperamos você<br>nesse momento especial</h2>
+        <p style="margin-top:35px; line-height:2; font-size:1.08rem; color:#666; max-width: 650px; margin-inline: auto;">Para confirmar sua presença, clique no botão abaixo e fale diretamente com nosso cerimonialista pelo WhatsApp.</p>
+        <a href="https://wa.me/5531993748543?text=Olá!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento%20de%20Caroline%20%26%20Igor." target="_blank" class="btn-rsvp-minimalist">
+          <span>✆</span> Confirmar Presença no WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <section id="eventos" style="background:#F8F6F2; padding:120px 24px;">
+      <div class="container">
+        <div style="text-align:center; margin-bottom:80px;" class="reveal">
+          <h2>O Grande Dia</h2>
+          <p style="margin-top:20px; color:#777; max-width:700px; margin-inline:auto; line-height:1.9;">Preparamos cada detalhe com muito carinho para celebrar esse momento ao lado das pessoas mais importantes das nossas vidas.</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; margin-bottom:100px;" class="evento-grid reveal">
+          <div>
+            <img src="https://images.unsplash.com/photo-1543360520-22c6e612ed96?w=600" style="width:100%; height:550px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);" alt="Igreja">
+          </div>
+          <div>
+            <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">CERIMÔNIA</span>
+            <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Igreja da Boa Viagem</h3>
+            <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">A cerimônia acontecerá na tradicional Igreja Nossa Senhora da Boa Viagem, um dos lugares mais marcantes e especiais de Belo Horizonte.<br><br>31 de Outubro de 2026<br>20:30</p>
+            <button class="primary-btn" style="display:inline-block; margin-top:35px; border:none; cursor:pointer;" onclick="openMap('Igreja da Boa Viagem', 'R. Sergipe, 475 - Boa Viagem, Belo Horizonte - MG, 30130-171', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.96317208985!2d-43.933355024095696!3d-19.92592533816654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e4b6933c29%3A0xc095c510dbd8bbec!2sSantu%C3%A1rio%20Arquidiocesano%20Nossa%20Senhora%20da%20Boa%20Viagem!5e0!3m2!1spt-BR!2sbr!4v1716301234567!5m2!1spt-BR!2sbr')">Ver Localização</button>
           </div>
         </div>
 
-        <div style="background:#5F742F; padding:70px; border-radius:36px; margin-bottom:35px; text-align:center; color:white; box-shadow:0 20px 60px rgba(95,116,47,.28);">
-          <p style="font-size:1.45rem; line-height:2; font-family:'Playfair Display', serif; font-style: italic;">
-            “Nosso amor nunca foi baseado apenas nos momentos bons. Ele foi fortalecido justamente pelas provas que enfrentamos ao longo do caminho.”
-          </p>
-        </div>
-
-        <div style="background:white; padding:60px; border-radius:32px; box-shadow:0 15px 50px rgba(0,0,0,.05); text-align:center;">
-          <p style="font-size:1.1rem; line-height:2.2; color:#555; margin-bottom:35px;">
-            Hoje, depois de quase dois anos morando juntos, conhecemos um ao outro de verdade: as qualidades, os defeitos, as manias, os sonhos, os medos e até os silêncios.
-          </p>
-          <p style="font-size:1.1rem; line-height:2.2; color:#555; margin-bottom:35px;">
-            E mesmo conhecendo profundamente quem o outro é, escolhemos continuar caminhando lado a lado, todos os dias.
-          </p>
-          <div style="width:120px; height:1px; background:#D8D2C7; margin:40px auto;"></div>
-          <p style="font-size:1.25rem; line-height:2; color:#2F2F2F; font-family:'Playfair Display', serif;">
-            O casamento para nós não é o começo da nossa história. É a celebração de tudo o que já construímos até aqui e da certeza de que queremos continuar vivendo essa vida juntos.
-          </p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;" class="evento-grid reveal">
+          <div>
+            <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">RECEPÇÃO</span>
+            <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Casa Jardim</h3>
+            <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">Após a cerimônia, celebraremos esse momento especial ao lado da nossa família e amigos na Casa Jardim.<br><br>Esperamos você para viver essa noite inesquecível conosco.</p>
+            <button class="primary-btn" style="display:inline-block; margin-top:35px; border:none; cursor:pointer;" onclick="openMap('Casa Jardim', 'Belo Horizonte - MG (Endereço a definir)', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750!2d-43.933!3d-19.925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU1JzMwLjAiUyA0M8KwNTUnNTguOCJX!5e0!3m2!1spt-BR!2sbr!4v1716300000000!5m2!1spt-BR!2sbr')">Ver Localização</button>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600" style="width:100%; height:550px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);" alt="Festa">
+          </div>
         </div>
       </div>
+    </section>
+
+    <footer>
+      <h3 style="font-size:2.5rem; color:#5F742F; font-family: 'Great Vibes', cursive; font-weight: 400;">Esperamos você</h3>
+      <p style="margin-top:20px; color:#777;">Caroline & Igor · 2026</p>
+    </footer>
+
+  </div> <div id="presentes-view" style="display:none; padding-top: 80px; background: #FAF8F5;">
+    <div class="header-gifts">
+      <h1>Lista de Presentes</h1>
+      <p>Escolha um item divertido para contribuir com a nossa Lua de Mel!</p>
     </div>
-  </section>
 
-  <section id="galeria" style="overflow:hidden; background:white;">
-    <div class="container">
-      <div style="text-align:center; margin-bottom:60px;">
-        <h2>Nossos Momentos</h2>
-        <p style="margin-top:20px; color:#777;">Alguns registros da nossa história</p>
-      </div>
-
-      <div class="carousel-wrapper">
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)">←</button>
-        <div class="carousel-track" id="carouselTrack"></div>
-        <button class="carousel-btn next" onclick="moveCarousel(1)">→</button>
-      </div>
+    <div class="grid-gifts">
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?w=400" alt="Item"><h3>Vaquinha para ajudar os noivos quebrados</h3><div class="price">R$ 5.353,23</div><button class="buy-btn" onclick="openPixModal('Vaquinha para ajudar os noivos quebrados', '5.353,23')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400" alt="Item"><h3>Deus te iluminou e você resolveu dar uma boa ajuda na nossa lua de mel</h3><div class="price">R$ 3.829,87</div><button class="buy-btn" onclick="openPixModal('Ajuda na lua de mel', '3.829,87')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1541592102781-ef0f10d72379?w=400" alt="Item"><h3>Quer apostar que o noivo vai enfiar o pé na jaca na hora da cerimônia</h3><div class="price">R$ 2.306,51</div><button class="buy-btn" onclick="openPixModal('Aposta pe na jaca', '2.306,51')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1595126745145-2b4742617f1a?w=400" alt="Item"><h3>Gravata virtual</h3><div class="price">R$ 1.544,26</div><button class="buy-btn" onclick="openPixModal('Gravata virtual', '1.544,26')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400" alt="Item"><h3>Depilação para o noivo</h3><div class="price">R$ 935,37</div><button class="buy-btn" onclick="openPixModal('Depilacao para o noivo', '935,37')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1517438322307-e67111335449?w=400" alt="Item"><h3>Saco e luva de boxe para os noivos aliviarem a tensão</h3><div class="price">R$ 935,37</div><button class="buy-btn" onclick="openPixModal('Boxe para tensao', '935,37')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1515488042361-404e9250afef?w=400" alt="Item"><h3>Cinco... calma, é só brincadeira</h3><div class="price">R$ 807,19</div><button class="buy-btn" onclick="openPixModal('Cinco calma e brincadeira', '807,19')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1563089145-599997674d42?w=400" alt="Item"><h3>Conjunto de sabres de luz para o casal</h3><div class="price">R$ 783,15</div><button class="buy-btn" onclick="openPixModal('Sabres de luz', '783,15')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=400" alt="Item"><h3>Coleção de livros de rpg</h3><div class="price">R$ 630,93</div><button class="buy-btn" onclick="openPixModal('Livros de rpg', '630,93')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400" alt="Item"><h3>1kg de café</h3><div class="price">R$ 584,00</div><button class="buy-btn" onclick="openPixModal('1kg de cafe', '584,00')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400" alt="Item"><h3>Academia para os noivos entrarem em forma depois da lua de mel</h3><div class="price">R$ 570,27</div><button class="buy-btn" onclick="openPixModal('Academia pos lua de mel', '570,27')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400" alt="Item"><h3>1 mês de almoço garantido em casa</h3><div class="price">R$ 478,71</div><button class="buy-btn" onclick="openPixModal('1 mes de almoco garantido', '478,71')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400" alt="Item"><h3>Acessório para cortar a unha do dedão do noivo</h3><div class="price">R$ 478,71</div><button class="buy-btn" onclick="openPixModal('Cortador de unha do noivo', '478,71')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1496843916299-590492c751f4?w=400" alt="Item"><h3>Festa de despedida da noiva</h3><div class="price">R$ 478,71</div><button class="buy-btn" onclick="openPixModal('Despedida da noiva', '478,71')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400" alt="Item"><h3>Festa de despedida do noivo</h3><div class="price">R$ 478,71</div><button class="buy-btn" onclick="openPixModal('Despedida do noivo', '478,71')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400" alt="Item"><h3>Um curso de culinária básica para a noiva</h3><div class="price">R$ 478,71</div><button class="buy-btn" onclick="openPixModal('Curso culinaria noiva', '478,71')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400" alt="Item"><h3>Massagem relaxante para o noivo depois de ver a conta do casamento</h3><div class="price">R$ 402,03</div><button class="buy-btn" onclick="openPixModal('Massagem para o noivo', '402,03')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1603233801261-26df4e334522?w=400" alt="Item"><h3>Cura da ressaca para o noivo</h3><div class="price">R$ 365,40</div><button class="buy-btn" onclick="openPixModal('Cura da ressaca do noivo', '365,40')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400" alt="Item"><h3>Um curso de forró para o noivo</h3><div class="price">R$ 326,49</div><button class="buy-btn" onclick="openPixModal('Curso de forro noivo', '326,49')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1532634922-8fe0b757fb13?w=400" alt="Item"><h3>Máscara de gás para trocar as fraldas do futuro filho</h3><div class="price">R$ 324,20</div><button class="buy-btn" onclick="openPixModal('Mascara de gas fraldas', '324,20')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1434091873044-87dfde025b7a?w=400" alt="Item"><h3>Ter o cunhado como piloto da nossa lua de mel</h3><div class="price">R$ 249,80</div><button class="buy-btn" onclick="openPixModal('Cunhado piloto', '249,80')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1481137314489-083025211a11?w=400" alt="Item"><h3>Ver a noiva em pânico</h3><div class="price">R$ 249,80</div><button class="buy-btn" onclick="openPixModal('Ver a noiva em panico', '249,80')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=400" alt="Item"><h3>Guia para a noiva</h3><div class="price">R$ 204,02</div><button class="buy-btn" onclick="openPixModal('Guia para a noiva', '204,02')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1532635241-17e820add50a?w=400" alt="Item"><h3>Cerveja enquanto o noivo espera a noiva voltar das compras</h3><div class="price">R$ 202,88</div><button class="buy-btn" onclick="openPixModal('Cerveja de espera', '202,88')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400" alt="Item"><h3>Happy hour no bar antes do casório</h3><div class="price">R$ 202,88</div><button class="buy-btn" onclick="openPixModal('Happy hour antes casorio', '202,88')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=400" alt="Item"><h3>Kit de primeiros socorros para a noiva</h3><div class="price">R$ 202,88</div><button class="buy-btn" onclick="openPixModal('Kit primeiros socorros', '202,88')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400" alt="Item"><h3>Capacete contra rolo de macarrão</h3><div class="price">R$ 190,29</div><button class="buy-btn" onclick="openPixModal('Capacete contra rolo', '190,29')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Item"><h3>Rolo de macarrão para a noiva utilizar quando necessário</h3><div class="price">R$ 189,14</div><button class="buy-btn" onclick="openPixModal('Rolo de macarrao da noiva', '189,14')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1542010589-059d7f304e28?w=400" alt="Item"><h3>Curso de culinária para noivo</h3><div class="price">R$ 183,42</div><button class="buy-btn" onclick="openPixModal('Curso culinaria noivo', '183,42')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400" alt="Item"><h3>Crédito de celular para os noivos ligarem para seus parentes</h3><div class="price">R$ 182,28</div><button class="buy-btn" onclick="openPixModal('Credito de celular', '182,28')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=400" alt="Item"><h3>Cota para pagar prejuízos da viagem</h3><div class="price">R$ 174,27</div><button class="buy-btn" onclick="openPixModal('Prejuizos da viagem', '174,27')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=400" alt="Item"><h3>Decoração do carro com balões para o dia do casamento</h3><div class="price">R$ 174,27</div><button class="buy-btn" onclick="openPixModal('Decoracao carro baloes', '174,27')">Comprar</button></div>
+      
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400" alt="Item"><h3>Garanta a "internet" banda larga por 1 mês na casa nova dos noivos</h3><div class="price">R$ 174,27</div><button class="buy-btn" onclick="openPixModal('Internet banda larga', '174,27')">Comprar</button></div>
+      <div class="gift-card"><img src="https://images.unsplash.com/photo-1518133680790-399fcd6a3b2b?w=400" alt="Item"><h3>Raspadinha da sorte</h3><div class="price">R$ 174,27</div><button class="buy-btn" onclick="openPixModal('Raspadinha da sorte', '174,27')">Comprar</button></div>
     </div>
-  </section>
-
-  <section class="gift" id="presentes">
-    <div class="container">
-      <h2>Lista de Presentes</h2>
-      <p>
-        Sua presença será o nosso maior presente. Mas caso deseje nos presentear, preparamos uma lista especial com muito carinho para esse novo começo.
-      </p>
-      <a href="presentes.html" class="primary-btn-gift">ACESSAR LISTA</a>
-    </div>
-  </section>
-
-  <section class="rsvp" id="rsvp">
-    <div class="container" style="max-width:850px; margin: auto;">
-      <span style="letter-spacing:.25em; font-size:.8rem; font-weight:600; color: var(--green-dark); display: block; margin-bottom: 20px;">
-        CONFIRMAÇÃO DE PRESENÇA
-      </span>
-
-      <h2>Esperamos você<br>nesse momento especial</h2>
-
-      <p style="margin-top:35px; line-height:2; font-size:1.08rem; color:#666; max-width: 650px; margin-inline: auto;">
-        Para confirmar sua presença, clique no botão abaixo e fale diretamente com nosso cerimonialista pelo WhatsApp.
-      </p>
-
-      <a href="https://wa.me/5531993748543?text=Olá!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento%20de%20Caroline%20%26%20Igor." target="_blank" class="btn-rsvp-minimalist">
-        <span>✆</span> Confirmar Presença no WhatsApp
-      </a>
-    </div>
-  </section>
-
-  <section id="eventos" style="background:#F8F6F2; padding:120px 24px;">
-    <div class="container">
-      <div style="text-align:center; margin-bottom:80px;">
-        <h2>O Grande Dia</h2>
-        <p style="margin-top:20px; color:#777; max-width:700px; margin-inline:auto; line-height:1.9;">
-          Preparamos cada detalhe com muito carinho para celebrar esse momento ao lado das pessoas mais importantes das nossas vidas.
-        </p>
-      </div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; margin-bottom:100px;" class="evento-grid">
-        <div>
-          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGf-dAlCrgIUy3ASI_1dxmhGPx9xjCC1HzoW_ZQ8jsBk69VvzfwuU3vEPt9603GaqpLkrW6aU0DEljNrGghlCgQ_ft6C_Ui2zh2OpU6hFFRrPMV_TVy-4m9rmLNuYrCu1A6agBABw=w1400-h900" style="width:100%; height:650px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);">
-        </div>
-        <div>
-          <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">CERIMÔNIA</span>
-          <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Igreja da Boa Viagem</h3>
-          <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">
-            A cerimônia acontecerá na tradicional Igreja Nossa Senhora da Boa Viagem, um dos lugares mais marcantes e especiais de Belo Horizonte.
-            <br><br>
-            31 de Outubro de 2026<br>20:30
-          </p>
-          <a href="https://maps.google.com/?q=Igreja+Nossa+Senhora+da+Boa+Viagem" target="_blank" class="primary-btn" style="display:inline-block; margin-top:35px;">Ver Localização</a>
-        </div>
-      </div>
-
-      <div style="border-radius:32px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.08); margin-bottom:120px;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.9024573172837!2d-43.9374922247729!3d-19.928514881459588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699e7b4c1fc01%3A0xfab0e561649ce90e!2sIgreja%20Nossa%20Senhora%20da%20Boa%20Viagem%20Marco%20Zero%20de%20Belo%20Horizonte!5e0!3m2!1spt-BR!2sbr!4v1779313193735!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;" class="evento-grid">
-        <div>
-          <span style="color:#5F742F; font-weight:600; letter-spacing:.18em; font-size:.8rem;">RECEPÇÃO</span>
-          <h3 style="margin-top:18px; font-size:3rem; color:#2F2F2F;">Casa Jardim</h3>
-          <p style="margin-top:30px; line-height:2; color:#666; font-size:1.02rem;">
-            Após a cerimônia, celebraremos esse momento especial ao lado da nossa família e amigos na Casa Jardim.
-            <br><br>
-            Esperamos você para viver essa noite inesquecível conosco.
-          </p>
-          <a href="https://maps.google.com/?q=Casa+Jardim+Belo+Horizonte" target="_blank" class="primary-btn" style="display:inline-block; margin-top:35px;">Ver Localização</a>
-        </div>
-        <div>
-          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGLf9y4g38Jo1sGr2Nztjd-Lx7tdRtEFExsFVzMS-z9WuiPNNLfMFzwYHpvpUXPwQMMMMa2cD79IoBD0oLPeMuctPNUn13-UBxN1MLa3TOr0Inc1qHMHkCvigh2tcwlaYR8cmPItQ=w1400-h900" style="width:100%; height:650px; object-fit:cover; border-radius:36px; box-shadow:0 20px 60px rgba(0,0,0,.12);">
-        </div>
-      </div>
-
-      <div style="border-radius:32px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,.08); margin-top:60px;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.7445949572475!2d-43.954134807453144!3d-19.93516483363632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa697fb22bba589%3A0x2da7f0a0b2f6464a!2sCASA%20JARDIM%20(Espa%C3%A7o%20Festas%20e%20Eventos%20Corporativos%20.%20Grupo%20Celebre%20Produtora)!5e0!3m2!1spt-BR!2sbr!4v1779313314630!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <h3 style="font-size:2.5rem; color:#5F742F; font-family: 'Great Vibes', cursive; font-weight: 400;">Esperamos você</h3>
-    <p style="margin-top:20px; color:#777;">Caroline & Igor · 2026</p>
-  </footer>
-
-  <script src="script.js"></script>
-
-  <div class="music-player">
-    <button class="music-btn" id="musicToggle">♫</button>
-    <audio id="bgMusic" loop>
-      <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    
+    <footer style="margin-top: 40px;">
+      <h3 style="font-size:2rem; color:#5F742F; font-family: 'Great Vibes', cursive;">Obrigado pelo carinho!</h3>
+      <p style="margin-top:10px; color:#777;">Caroline & Igor</p>
+    </footer>
   </div>
 
+  <div class="custom-modal" id="modalPix">
+    <div class="modal-box">
+      <h2>Pagamento PIX</h2>
+      <div class="pix-instructions">
+        <p><strong>Item:</strong> <span id="pixTargetName"></span></p>
+        <p><strong>Favorecido:</strong> Igor Bruno Alves Malta</p>
+        <p><strong>Banco:</strong> PicPay</p>
+        <p><strong>Valor:</strong> R$ <span id="pixTargetPrice"></span> (BRL)</p>
+      </div>
+      <p style="font-size: 0.95rem; color: #666; margin-top: 15px;">Copie o código abaixo e cole no seu aplicativo do banco usando a opção <strong>Pix Copia e Cola</strong>.</p>
+      
+      <textarea id="realPixString" style="display:none;"></textarea>
+      
+      <button class="copy-btn" id="btnCopiarPix" onclick="copyPixCode()">Copiar Código PIX</button>
+      <button class="close-btn" onclick="closePixModal()">Fechar Janela</button>
+    </div>
+  </div>
+
+  <div class="custom-modal" id="modalMap">
+    <div class="modal-box" style="max-width: 600px; width: 95%;">
+      <h2 id="mapTitle" style="margin-bottom: 5px;">Local</h2>
+      <p id="mapAddress" style="color: #666; font-size: 0.95rem; margin-bottom: 20px;"></p>
+      
+      <button class="copy-btn" style="padding: 10px 20px; font-size: 0.9rem; margin-bottom: 20px;" onclick="copyMapAddress()">Copiar Endereço</button>
+      
+      <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        <iframe id="mapIframe" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      
+      <button class="close-btn" style="margin-top: 20px;" onclick="closeMapModal()">Fechar</button>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+  
+  <div class="music-player">
+    <button class="music-btn" id="musicToggle">♫</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
