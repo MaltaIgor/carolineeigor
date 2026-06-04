@@ -111,7 +111,6 @@ try {
   }
 
   const galleryImages = [
-    "1hGm_vV9moLbmQUdGk3UIpunR3ifsgB6u",
     "1yyoyyXiWAC0T2vc6lxh2eQeSfAEK1DYP",
     "19HTur5A0gmpjRynIEEkqparLLnHAjyvy",
     "1Xv6EHHRRmVrZRao6JPCrqlpuD6KbeSzu",
