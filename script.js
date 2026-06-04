@@ -94,7 +94,11 @@ try {
 try {
   const heroImages = [
     "1Ib8Jd_IK-O2-Zzndg-V57MPDqPuNspeQ",
-    "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe"
+    "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe",
+    "16jMvDcPxnClwR-q1jfjT49Ha9Vz3W2yd",
+    "1hGm_vV9moLbmQUdGk3UIpunR3ifsgB6u",
+    "1EAy9fQ-BT64MBOrLiBfQKaXCb27QBJgk"
+    
   ];
   const heroSlider = document.getElementById("heroSlider");
   if (heroSlider) {
@@ -107,9 +111,45 @@ try {
   }
 
   const galleryImages = [
-    "1hYB-peHdc_iJZwDxbxZfra6n4Y-HejUr",
-    "1NbgLj-abHYd8g5ybmlpL1wtsdOZ2Lbwe",
-    "1Ib8Jd_IK-O2-Zzndg-V57MPDqPuNspeQ"
+    "1hGm_vV9moLbmQUdGk3UIpunR3ifsgB6u",
+    "1yyoyyXiWAC0T2vc6lxh2eQeSfAEK1DYP",
+    "19HTur5A0gmpjRynIEEkqparLLnHAjyvy",
+    "1Xv6EHHRRmVrZRao6JPCrqlpuD6KbeSzu",
+    "17iFizv0DeyCbGfle45JW7Zq27u7p1LlT",
+    "1lXKafsyFiEv5pNa6CWXdNvQ-a8V1BJ8m",
+    "1eGaLGR5_jYwNXchMBk0mZqzSUk0CWXRO",
+    "1xrC25sCdTFTsQTX1pv_A7itVKvP7zwbz",
+    "1Z7LZV48bVgk2KNp9qOreua2LZljrbuRr",
+    "18F2Jh8LIizZ9OL1XYrkuH7ou0bE4UTQ3",
+    "1B70BwwTe90jC5UXOSpxlT3jV4hqkj8Q5",
+    "10-iD7f9LWE8xi5GN4XeuHvrL3E0_2dA0",
+    "12Ylruamr8p68qKuJe2qXbZji6HP-5Yyv",
+    "18F2Jh8LIizZ9OL1XYrkuH7ou0bE4UTQ3",
+    "1dsvftorn8jQaHbOPZlZZgrkn1pZys5JE",
+    "1teX7SpH5UhcqnOc-bFqWd4OZLIaWIrMM",
+    "1qDnIagULg7sDEdlhoC_dXOVC9xCdG4W5",
+    "1KHJ2B6sKHEM5PXhiZUCSs5LTMWIfgfsC",
+    "1NYFONUd69XmRqM1Y_EIs9zZYrHHCcHaL",
+    "1Ju35F-ZgqYAnbr6NoP0euifyrlCnX9n9",
+    "1BUBCFB2ENkDlApQH5A6ACmnJwTYAabEZ",
+    "1y1S78cjLx7qJRQlnimt9y99Udfliqp2r",
+    "15NUO8v-WyfUWENij92LgkMou3QsbdIf8",
+    "1sZebMJkSlR3T3k3tsLfWgZ8w7W2HGrTQ",
+    "1ghNfmJdqE_RclBICJtIp4uvVKNS-M6nJ",
+    "1-7wK6OdLaSYqdtRu3qJPsr8g02nq4izD",
+    "15NdBWJlPtrR3fhoyP5HQwmmUBngBFWm4",    
+    "1-2GXKsdbfjCGfvlmYfmByeQPxEukV6md",
+    "1LBZiFDjV2TJdH6_5dxq86XM8WjFsekbn",
+    "1hiQ4Su-1eiyJADQrMes2x9t3EIUCa-yU",
+    "1S6YQyQvdXYjiIInK_gEnY8LvbP_QA5cU",
+    "1ufGY-buDSazNT3Z7hpdQB-UJn1psjunt",
+    "1T2xhOPPjs92Sq8lOITTifpuSvoXqe0q9",
+    "1P6y_UDAWlbRR7gTdgGgP5ON67k8_aQty",
+    "1-tnTaeRbo3SCQohX8Ah9LrjmZJFXDxJt",
+    "1HLl7HZn8Uha0Bu96BMcJpi_4Fc5lJgKQ",    
+    "1DlHnDDbsTo-MYCUMUT_byG0G7J1xuQAv",  
+    "1G4oY8K2uf7kQRweqZyobEvuNvVQAXxwx",  
+    "1cbrF3W4WIUhSGEbxKvbvE0bEf8dAReTv"
   ];
   const carouselTrack = document.getElementById("carouselTrack");
   if (carouselTrack) {
